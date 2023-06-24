@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"jest.disabledWorkspaceFolders": [
+			"koppel",
+			"koppel",
+			"koppel-driver"
+		]
+	}
+}
