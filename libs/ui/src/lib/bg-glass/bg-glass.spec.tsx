@@ -5,7 +5,7 @@ import BgGlass from './bg-glass';
 
 describe('BgGlass', () => {
   it('should render successfully', () => {
-    const { root } = render(<BgGlass />);
+    const { root } = render(<BgGlass src1='' />);
     expect(root).toBeTruthy();
   });
 });

@@ -9,7 +9,10 @@
     "resolveJsonModule": true,
     "strict": true,
     "composite": true,
-    "declaration": true
+    "declaration": true,
+    "paths": {
+      "@koppel/ui": ["libs/ui/src/index.ts"]
+    }
   },
   "files": ["../../node_modules/@nx/expo/typings/svg.d.ts"],
   "include": [],
