@@ -8,6 +8,7 @@
     "@react-native-community/blur": "^4.3.2",
     "expo": "48.0.16",
     "expo-blur": "~12.2.2",
+    "expo-image": "~1.0.1",
     "expo-splash-screen": "~0.18.2",
     "expo-status-bar": "~1.4.4",
     "react": "18.2.0",
