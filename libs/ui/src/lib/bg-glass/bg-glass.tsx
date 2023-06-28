@@ -11,7 +11,7 @@ export interface BgGlassProps {
 export function BgGlass({src1}: BgGlassProps) {
   return (
     <View style={tw`bg-blue-500`}>
-      <View style={tw``}>
+      <View style={tw` `}>
         <Image href={src1}  />
       </View>
     </View>
