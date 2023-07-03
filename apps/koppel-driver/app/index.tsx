@@ -2,11 +2,11 @@
 import {
   SafeAreaView,
   View,
-  StatusBar,
-  TouchableOpacity,
+  StatusBar
 } from 'react-native';
 import tw from 'twrnc';
-import { BgGlass } from '@koppel/ui';
+
+import { GlassView } from "@koppel/ui";
 
 
 
@@ -17,7 +17,7 @@ export const App = () => {
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={tw`flex-1 bg-white`}>
         <View style={tw`flex-1`}>
-          <BgGlass src1='../../assets/svg/Hexagon.svg' />
+          <GlassView src1={require('../assets/Hexagon.png')} src2={require('../assets/Spline.png')} />
         </View>
 
       </SafeAreaView>

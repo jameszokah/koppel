@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
 
-import BgGlass from './bg-glass';
+import InputField from './input-field';
 
-describe('BgGlass', () => {
+describe('InputField', () => {
   it('should render successfully', () => {
-    const { root } = render(<BgGlass src1='' />);
+    const { root } = render(<InputField />);
     expect(root).toBeTruthy();
   });
 });

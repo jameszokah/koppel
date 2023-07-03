@@ -2,9 +2,13 @@
   "expo": {
     "name": "KoppelDriver",
     "slug": "koppel-driver",
+    "scheme": "koppel-driver",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "experiments": {
+      "tsconfigPaths": true
+    },
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -24,7 +28,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.anonymous.koppeldriver"
+      "package": "com.koppel.driver"
     },
     "web": {
       "favicon": "./assets/favicon.png",

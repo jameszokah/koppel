@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@koppel/ui": ["libs/ui/src/index.ts"]
+      "@koppel/ui": ["libs/ui/src/index.ts"],
+      "ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

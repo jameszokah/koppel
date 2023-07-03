@@ -2,6 +2,7 @@
   "name": "koppel-driver",
   "version": "0.0.1",
   "private": true,
+  "main": "index.js",
   "dependencies": {
     "@testing-library/jest-native": "*",
     "@testing-library/react-native": "*",
@@ -16,7 +17,13 @@
     "expo-image": "~1.0.1",
     "expo-splash-screen": "~0.18.2",
     "expo-status-bar": "~1.4.4",
-    "@babel/core": "*"
+    "@babel/core": "*",
+    "expo-router": "*",
+    "@expo-google-fonts/poppins": "*",
+    "react-native-paper": "*",
+    "@rneui/themed": "*",
+    "expo-blur": "*",
+    "@react-native-community/blur": "*"
   },
   "scripts": {
     "eas-build-pre-install": "cd ../../ && node tools/scripts/eas-build-pre-install.mjs . apps/koppel-driver && cp yarn.lock apps/koppel-driver",
