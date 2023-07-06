@@ -33,6 +33,8 @@ export function GlassView({src1,src2}: GlassViewProps) {
       </View>
     );
   }
+
+  
   return (
     <BlurView intensity={60} tint='default' style={{ height:'100%', width:'100%'}}>
       <View style={[tw`absolute top-10 right-0`, {
