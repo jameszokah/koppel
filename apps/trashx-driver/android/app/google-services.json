@@ -29,6 +29,13 @@
             {
               "client_id": "115722614823-cpa9jnt8tin0303dht4t2fet1blhsd00.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "115722614823-frha9v8knkc1vtbolc0pncmlpgdct9fr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.koppel.trashx.trashxDriver.RunnerTests"
+              }
             }
           ]
         }

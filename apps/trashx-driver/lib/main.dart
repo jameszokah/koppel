@@ -6,6 +6,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:trashx_driver/services/services.dart';
 import 'firebase_options.dart';
 
+
 Future<void> main() async {
   FlutterError.demangleStackTrace = (StackTrace stack) {
     if (stack is stack_trace.Trace) return stack.vmTrace;
