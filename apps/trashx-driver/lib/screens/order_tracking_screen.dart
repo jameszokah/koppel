@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,9 @@ import 'package:trashx_driver/widgets/widgets.dart';
 // import 'package:flutter/services.dart' show rootBundle;
 
 class OrderTrackingScreen extends StatefulHookConsumerWidget {
-  const OrderTrackingScreen({super.key});
+ const OrderTrackingScreen({super.key, required this.message});
+
+  final RemoteMessage? message;
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
@@ -135,6 +138,7 @@ class _OrderTrackingScreenState extends ConsumerState<OrderTrackingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    
     useEffect(() {
       getPolyPoints();
       getCurrentLocation();
@@ -151,14 +155,14 @@ class _OrderTrackingScreenState extends ConsumerState<OrderTrackingScreen> {
               showDragHandle: true,
               context: context,
               builder: (context) {
-                return const SizedBox(
+                return SizedBox(
                   height: 800,
                   width: double.infinity,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      BottomSheetOrderTracking(),
+                      BottomSheetOrderTracking(message: widget.message),
                     ],
                   ),
                 );

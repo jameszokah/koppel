@@ -1,16 +1,17 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:trashx_driver/screens/screens.dart';
 import 'package:trashx_driver/router/router.dart';
 
-final GlobalKey<NavigatorState> _rootNavigator = GlobalKey<NavigatorState>();
-final GlobalKey<NavigatorState> _shellNavigator = GlobalKey<NavigatorState>();
+final GlobalKey<NavigatorState> rootNavigator = GlobalKey<NavigatorState>();
+final GlobalKey<NavigatorState> shellNavigator = GlobalKey<NavigatorState>();
 
 class AppRouter {
   static final appRouterProvider = Provider<GoRouter>((ref) {
     return GoRouter(
-      navigatorKey: _rootNavigator,
+      navigatorKey: rootNavigator,
       initialLocation: '/schedule',
       routes: [
         StatefulShellRoute.indexedStack(
@@ -33,7 +34,7 @@ class AppRouter {
                         pageBuilder: (context, state) =>
                             MaterialPage(
                               key: state.pageKey,
-                              child: OrderTrackingScreen(key: state.pageKey)
+                              child: OrderTrackingScreen(key: state.pageKey, message: state.queryParameters['message'] as RemoteMessage,)
                             ),
                       ),
                     ],

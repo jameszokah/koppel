@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "115722614823",
+    "project_id": "trashx-e438a",
+    "storage_bucket": "trashx-e438a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:115722614823:android:4abd72df8cd04d2660f602",
+        "android_client_info": {
+          "package_name": "com.koppel.trashx.trashx_driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "115722614823-cpa9jnt8tin0303dht4t2fet1blhsd00.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2xclTs5EKmm_mSnKxbN84Pv2sP6gMrxc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "115722614823-cpa9jnt8tin0303dht4t2fet1blhsd00.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

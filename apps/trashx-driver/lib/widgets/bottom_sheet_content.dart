@@ -91,8 +91,8 @@ class BottomSheetContents extends ConsumerWidget {
               const SizedBox(height: 20.0),
               Row(
                 children: [
-                  ClipRect(
-                    
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
                     child: Image.asset(
                       'assets/images/trash-image.jpg',
                       height: 100.0,
