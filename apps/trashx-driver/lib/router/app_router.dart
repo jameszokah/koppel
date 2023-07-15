@@ -26,7 +26,7 @@ class AppRouter {
                   GoRoute(
                     name: RouteName.home,
                     path: '/home',
-                    builder: (context, state) => HomeScreen(key: state.pageKey, message: state.queryParameters['message']! as RemoteMessage),
+                    builder: (context, state) => HomeScreen(key: state.pageKey, message: state.queryParameters['message'] as RemoteMessage),
                     routes: [
                       GoRoute(
                         name: RouteName.orderTracking, 

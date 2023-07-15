@@ -28,7 +28,7 @@ class NewRequest extends ConsumerWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      BottomSheetContents(message: message!),
+                      BottomSheetContents(message: message),
                     ],
                   ),
                 );
