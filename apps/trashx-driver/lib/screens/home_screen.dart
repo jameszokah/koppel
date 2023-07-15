@@ -149,7 +149,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   textAlign: TextAlign.left,
                 ),
                 const SizedBox(height: 10.0),
-                active.value && widget.message != null
+                active.value
                     ? NewRequest(active: active.value, message:  widget.message!).animate().fadeIn().slideX(
                           begin: .97,
                           end: 0.0,
