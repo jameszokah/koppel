@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:trashx_driver/screens/screens.dart';
 import 'package:trashx_driver/router/router.dart';
+import 'package:trashx_driver/services/services.dart';
 
 final GlobalKey<NavigatorState> rootNavigator = GlobalKey<NavigatorState>();
 final GlobalKey<NavigatorState> shellNavigator = GlobalKey<NavigatorState>();
@@ -26,7 +27,7 @@ class AppRouter {
                   GoRoute(
                     name: RouteName.home,
                     path: '/home',
-                    builder: (context, state) => HomeScreen(key: state.pageKey, message: state.queryParameters['message'] as RemoteMessage),
+                    builder: (context, state) => HomeScreen(key: state.pageKey, message:  FirebaseServices().isNewNotification ? state.queryParameters['message']! as RemoteMessage : null),
                     routes: [
                       GoRoute(
                         name: RouteName.orderTracking, 

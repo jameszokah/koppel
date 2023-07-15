@@ -1,3 +1,5 @@
+import 'dart:js_interop';
+
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:go_router/go_router.dart';
 import 'package:trashx_driver/router/router.dart';
@@ -9,11 +11,12 @@ Future<void> handleBackgroundMessage(RemoteMessage? message) async {
 }
 class FirebaseServices {
   final _firebaseMessaging = FirebaseMessaging.instance;
+  RemoteMessage? checkMessage;
 
   void handleMessage(RemoteMessage? message) {
     if(message == null) return;
     GoRouter.of(rootNavigator.currentState!.context).namedLocation(RouteName.home,queryParameters: <String, dynamic>{'message': message});
-    
+    checkMessage = message;
   }
 
   Future initPushNotification() async {
@@ -34,10 +37,9 @@ class FirebaseServices {
       final fCMToken = await _firebaseMessaging.getToken();
         print("TOKEN: ====== $fCMToken");
         initPushNotification();
-  
-
-      
-
 
   }
+  bool get isNewNotification => checkMessage != null;
+
+    // static bool isNewNotification() => isNewMessage();
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:trashx_driver/services/services.dart';
 import 'package:trashx_driver/widgets/widgets.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
@@ -148,8 +149,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   textAlign: TextAlign.left,
                 ),
                 const SizedBox(height: 10.0),
-                active.value
-                    ? NewRequest(active: active.value, message: widget.message).animate().fadeIn().slideX(
+                active.value && widget.message != null
+                    ? NewRequest(active: active.value, message:  widget.message!).animate().fadeIn().slideX(
                           begin: .97,
                           end: 0.0,
                           curve: Curves.easeOutBack,
