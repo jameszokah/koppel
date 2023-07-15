@@ -19,7 +19,7 @@ class _RootScreenState extends ConsumerState<RootScreen> {
   List<Map<String, dynamic>> screens = const [
     {
       'title': '/home',
-      'screen': HomeScreen(),
+      // 'screen': HomeScreen(message: null,),
     },
     {
       'title': '/schedule',

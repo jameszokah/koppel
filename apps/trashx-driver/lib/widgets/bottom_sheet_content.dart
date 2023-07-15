@@ -47,7 +47,8 @@ final RemoteMessage? message;
               InkWell(
                 onTap: () {
                 //  context.namedLocation(RouteName.orderTracking);
-		 context.go('/home/order-tracking', queryParameters: <String, dynamic>{'message': message!});
+		//  context.go('/home/order-tracking', queryParameters: <String, dynamic>{'message': message!});
+    context.goNamed(RouteName.orderTracking,queryParameters: <String, dynamic>{'message': message!});
                 },
                 child: Row(
                   children: [

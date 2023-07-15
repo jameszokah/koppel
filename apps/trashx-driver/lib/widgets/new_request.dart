@@ -21,7 +21,7 @@ class NewRequest extends ConsumerWidget {
               showDragHandle: true,
               context: context,
               builder: (context) {
-                return const SizedBox(
+                return SizedBox(
                   height: 800,
                   width: double.infinity,
                   child: Column(
