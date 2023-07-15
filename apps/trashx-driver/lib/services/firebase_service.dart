@@ -1,5 +1,3 @@
-import 'dart:js_interop';
-
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:go_router/go_router.dart';
 import 'package:trashx_driver/router/router.dart';
