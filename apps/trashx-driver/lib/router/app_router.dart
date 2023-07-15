@@ -26,15 +26,15 @@ class AppRouter {
                   GoRoute(
                     name: RouteName.home,
                     path: '/home',
-                    builder: (context, state) => HomeScreen(key: state.pageKey),
+                    builder: (context, state) => HomeScreen(key: state.pageKey, message: state.queryParameters['message']! as RemoteMessage),
                     routes: [
                       GoRoute(
                         name: RouteName.orderTracking, 
-                        path: '/order-tracking',
+                        path: 'order-tracking',
                         pageBuilder: (context, state) =>
                             MaterialPage(
                               key: state.pageKey,
-                              child: OrderTrackingScreen(key: state.pageKey, message: state.queryParameters['message'] as RemoteMessage,)
+                              child: OrderTrackingScreen(key: state.pageKey, message: state.queryParameters['message']! as RemoteMessage,)
                             ),
                       ),
                     ],

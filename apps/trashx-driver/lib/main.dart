@@ -32,9 +32,9 @@ class MyApp extends ConsumerWidget {
     // This widget is the root of your application.
     return MaterialApp.router(
       routerConfig: router,
-      routeInformationProvider: router.routeInformationProvider,
-      routeInformationParser: router.routeInformationParser,
-      routerDelegate: router.routerDelegate,
+   //   routeInformationProvider: router.routeInformationProvider,
+   //   routeInformationParser: router.routeInformationParser,
+   //   routerDelegate: router.routerDelegate,
       title: 'Trashx Driver',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

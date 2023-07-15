@@ -162,7 +162,7 @@ class _OrderTrackingScreenState extends ConsumerState<OrderTrackingScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      BottomSheetOrderTracking(message: widget.message),
+                      BottomSheetOrderTracking(message: widget.message!),
                     ],
                   ),
                 );

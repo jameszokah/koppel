@@ -4,9 +4,12 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:trashx_driver/router/router.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 class BottomSheetContents extends ConsumerWidget {
-  const BottomSheetContents({super.key});
+  const BottomSheetContents({super.key, required this.message});
+
+final RemoteMessage? message;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -43,7 +46,8 @@ class BottomSheetContents extends ConsumerWidget {
             children: [
               InkWell(
                 onTap: () {
-                  context.namedLocation(RouteName.orderTracking);
+                //  context.namedLocation(RouteName.orderTracking);
+		 context.go('/home/order-tracking', queryParameters: <String, dynamic>{'message': message!});
                 },
                 child: Row(
                   children: [

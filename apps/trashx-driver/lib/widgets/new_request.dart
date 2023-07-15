@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:trashx_driver/widgets/bottom_sheet_content.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+
 
 class NewRequest extends ConsumerWidget {
-  const NewRequest({required this.active, super.key});
+  const NewRequest({required this.active, required this.message, super.key});
 
   final bool active;
+  final RemoteMessage? message;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -25,7 +28,7 @@ class NewRequest extends ConsumerWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      BottomSheetContents(),
+                      BottomSheetContents(message: message!),
                     ],
                   ),
                 );
