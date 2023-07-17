@@ -27,7 +27,7 @@ class AppRouter {
                   GoRoute(
                     name: RouteName.home,
                     path: '/home',
-                    builder: (context, state) => HomeScreen(key: state.pageKey, message:  FirebaseServices().isNewNotification ? state.queryParameters['message']! as RemoteMessage : null),
+                    builder: (context, state) => HomeScreen(key: state.pageKey),
                     routes: [
                       GoRoute(
                         name: RouteName.orderTracking, 
@@ -35,7 +35,7 @@ class AppRouter {
                         pageBuilder: (context, state) =>
                             MaterialPage(
                               key: state.pageKey,
-                              child: OrderTrackingScreen(key: state.pageKey, message: state.queryParameters['message']! as RemoteMessage,)
+                              child: OrderTrackingScreen(key: state.pageKey)
                             ),
                       ),
                     ],

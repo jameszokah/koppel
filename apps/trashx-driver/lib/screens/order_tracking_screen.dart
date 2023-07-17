@@ -8,13 +8,12 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:trashx_driver/services/services.dart';
 import 'package:trashx_driver/utils/utils.dart';
-import 'package:trashx_driver/widgets/widgets.dart';  
+import 'package:trashx_driver/widgets/widgets.dart';
 // import 'package:flutter/services.dart' show rootBundle;
 
 class OrderTrackingScreen extends StatefulHookConsumerWidget {
- const OrderTrackingScreen({super.key, required this.message});
+ const OrderTrackingScreen({super.key});
 
-  final RemoteMessage? message;
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
@@ -138,7 +137,9 @@ class _OrderTrackingScreenState extends ConsumerState<OrderTrackingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    
+
+
+
     useEffect(() {
       getPolyPoints();
       getCurrentLocation();
@@ -162,7 +163,7 @@ class _OrderTrackingScreenState extends ConsumerState<OrderTrackingScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      BottomSheetOrderTracking(message: widget.message!),
+                      BottomSheetOrderTracking(),
                     ],
                   ),
                 );

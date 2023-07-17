@@ -8,9 +8,8 @@ import 'package:trashx_driver/widgets/widgets.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
 class HomeScreen extends StatefulHookConsumerWidget {
-  const HomeScreen({super.key, this.message});
+  const HomeScreen({super.key});
 
-  final RemoteMessage? message;
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _HomeScreenState();
@@ -150,7 +149,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 ),
                 const SizedBox(height: 10.0),
                 active.value
-                    ? NewRequest(active: active.value, message:  widget.message!).animate().fadeIn().slideX(
+                    ? NewRequest(active: active.value).animate().fadeIn().slideX(
                           begin: .97,
                           end: 0.0,
                           curve: Curves.easeOutBack,

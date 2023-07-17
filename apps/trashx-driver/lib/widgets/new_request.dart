@@ -5,10 +5,9 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 
 
 class NewRequest extends ConsumerWidget {
-  const NewRequest({required this.active, required this.message, super.key});
+  const NewRequest({required this.active, super.key});
 
   final bool active;
-  final RemoteMessage? message;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -28,7 +27,7 @@ class NewRequest extends ConsumerWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      BottomSheetContents(message: message),
+                      BottomSheetContents(),
                     ],
                   ),
                 );

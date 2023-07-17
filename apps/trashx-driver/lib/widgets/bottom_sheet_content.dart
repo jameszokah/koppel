@@ -7,9 +7,9 @@ import 'package:trashx_driver/router/router.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
 class BottomSheetContents extends ConsumerWidget {
-  const BottomSheetContents({super.key, required this.message});
+  const BottomSheetContents({super.key});
 
-final RemoteMessage? message;
+
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -48,7 +48,7 @@ final RemoteMessage? message;
                 onTap: () {
                 //  context.namedLocation(RouteName.orderTracking);
 		//  context.go('/home/order-tracking', queryParameters: <String, dynamic>{'message': message!});
-    context.goNamed(RouteName.orderTracking,queryParameters: <String, dynamic>{'message': message!});
+    context.goNamed(RouteName.orderTracking);
                 },
                 child: Row(
                   children: [
