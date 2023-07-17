@@ -150,7 +150,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 ),
                 const SizedBox(height: 10.0),
                 active.value
-                    ? NewRequest(active: active.value, message:  widget.message!).animate().fadeIn().slideX(
+                    ? NewRequest(active: active.value, message:  widget.message).animate().fadeIn().slideX(
                           begin: .97,
                           end: 0.0,
                           curve: Curves.easeOutBack,
