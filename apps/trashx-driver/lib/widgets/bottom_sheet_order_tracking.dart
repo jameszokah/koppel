@@ -6,19 +6,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:trashx_driver/controllers/controllers.dart';
 
 class BottomSheetOrderTracking extends ConsumerWidget {
-  BottomSheetOrderTracking({this.message, super.key});
+  BottomSheetOrderTracking({super.key});
 
-  final RemoteMessage? message;
 
   final TextEditingController textController = TextEditingController();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final message = ref.watch(localMessageProvider.notifier).getMessage;
 
     final Size size = MediaQuery.of(context).size;
-    
+
     return Column(
       children: [
         const Text('Pickup Location'),
@@ -72,7 +73,7 @@ class BottomSheetOrderTracking extends ConsumerWidget {
               border: OutlineInputBorder(
                 borderRadius: const BorderRadius.all(Radius.circular(20)),
                 borderSide: BorderSide(width: 0.8,style: BorderStyle.solid, color: const Color(0xFF399087).withOpacity(0.8))
-            
+
               ),
                       ),
                   ),
@@ -89,13 +90,13 @@ class BottomSheetOrderTracking extends ConsumerWidget {
 
        ElevatedButton(onPressed: () {
         context.pop();
-       }, 
+       },
        style: const ButtonStyle(
         // backgroundColor: Color(0xFF399087).withOpacity(0.8)
        ),
        child: const Text('Confirm Collection'),
        )
-        
+
       ],
     );
   }
