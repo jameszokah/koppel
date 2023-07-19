@@ -48,7 +48,7 @@ class BottomSheetContents extends ConsumerWidget {
                 onTap: () {
                 //  context.namedLocation(RouteName.orderTracking);
 		//  context.go('/home/order-tracking', queryParameters: <String, dynamic>{'message': message!});
-    context.goNamed(RouteName.orderTracking,queryParameters: <String, dynamic>{'message': message!});
+    context.goNamed(RouteName.orderTracking);
                 },
                 child: Row(
                   children: [

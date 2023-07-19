@@ -16,7 +16,6 @@ class AppRouter {
       initialLocation: '/schedule',
       routes: [
         StatefulShellRoute.indexedStack(
-
             builder: (BuildContext context, state, navigationShell) =>
                 RootScreen(
                   child: navigationShell,
@@ -28,28 +27,26 @@ class AppRouter {
                     name: RouteName.home,
                     path: '/home',
                     builder: (context, state) => HomeScreen(key: state.pageKey),
-                    routes: [
-                      GoRoute(
-                        name: RouteName.orderTracking, 
-                        path: 'order-tracking',
-                        pageBuilder: (context, state) =>
-                            MaterialPage(
-                              key: state.pageKey,
-                              child: OrderTrackingScreen(key: state.pageKey)
-                            ),
-                      ),
-                    ],
                   ),
                 ],
               ),
               StatefulShellBranch(
                 routes: [
                   GoRoute(
-                    name: RouteName.schedule,
-                    path: '/schedule',
-                    builder: (context, state) =>
-                        ScheduleScreen(key: state.pageKey),
-                  ),
+                      name: RouteName.schedule,
+                      path: '/schedule',
+                      builder: (context, state) =>
+                          ScheduleScreen(key: state.pageKey),
+                      routes: [
+                        GoRoute(
+                          name: RouteName.detailedSchedule,
+                          path: 'detailed-schedule',
+                          pageBuilder: (context, state) => MaterialPage(
+                              key: state.pageKey,
+                              child:
+                                  DetailedScheduleScreen(key: state.pageKey)),
+                        ),
+                      ]),
                 ],
               ),
               StatefulShellBranch(
@@ -62,7 +59,15 @@ class AppRouter {
                   ),
                 ],
               ),
-            ])
+            ]),
+
+        GoRoute(
+          name: RouteName.orderTracking,
+          path: '/ordertracking',
+          pageBuilder: (context, state) => MaterialPage(
+              key: state.pageKey,
+              child: OrderTrackingScreen(key: state.pageKey)),
+        ),
 
         // GoRoute(
         //   path: '/order-details',

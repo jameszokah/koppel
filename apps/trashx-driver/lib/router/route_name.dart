@@ -4,6 +4,7 @@ class RouteName {
   static final orderTracking = 'order-tracking';
   static final schedule = 'schedule';
   static final profile = 'profile';
+  static final detailedSchedule = 'detailed-schedule';
   static final orderDetails = 'order-details';
   
 

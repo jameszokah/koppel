@@ -38,7 +38,7 @@ class MyApp extends ConsumerWidget {
       title: 'Trashx Driver',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal[700]!),
         useMaterial3: true,
       ),
     );

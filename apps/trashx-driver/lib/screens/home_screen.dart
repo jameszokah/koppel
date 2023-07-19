@@ -24,6 +24,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     // final size = MediaQuery.of(context).size;
     
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      backgroundColor: Colors.teal[700],
       body: Container(
         // height: size.height * 0.90,
         // width: double.infinity,

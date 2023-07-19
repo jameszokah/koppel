@@ -12,8 +12,11 @@ Future<void> handleBackgroundMessage(RemoteMessage? message) async {
   print("Notification Payload ${message?.data}");
 }
 class FirebaseServices {
+	FirebaseServices();
+
+
   final _firebaseMessaging = FirebaseMessaging.instance;
-  RemoteMessage? checkMessage;
+  static RemoteMessage? remoteMessage;
 
 
   final AndroidNotificationChannel _androidNotificationChannel = const AndroidNotificationChannel(
@@ -65,7 +68,7 @@ class FirebaseServices {
   void handleMessage(RemoteMessage? message) {
     if(message == null) return;
     GoRouter.of(rootNavigator.currentState!.context).namedLocation(RouteName.orderTracking,queryParameters: <String, dynamic>{'message': message});
-    checkMessage = message;
+    remoteMessage = message;
   }
 
   Future initPushNotification() async {
@@ -81,6 +84,7 @@ class FirebaseServices {
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
   RemoteNotification? notification = message.notification;
   AndroidNotification? android = message.notification?.android;
+  remoteMessage = message;
 
   // If `onMessage` is triggered with a notification, construct our own
   // local notification to show to users using the created channel.
@@ -118,7 +122,8 @@ class FirebaseServices {
         initLocalNotification();
 
   }
-  bool get isNewNotification => checkMessage != null;
+  bool get isNewNotification => remoteMessage != null;
+  RemoteMessage get getRemoteMessage => remoteMessage!;
 
     // static bool isNewNotification() => isNewMessage();
 }

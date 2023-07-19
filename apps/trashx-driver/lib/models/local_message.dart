@@ -1,3 +1,5 @@
+/**
+
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -8,7 +10,7 @@ part 'local_message.freezed.dart';
 class LocalMessage with _$LocalMessage {
   // factory LocalMessage._();
   factory LocalMessage({
-    RemoteMessage? this.message
+    RemoteMessage? message
   }) = _LocalMessage;
 
 
@@ -16,3 +18,5 @@ class LocalMessage with _$LocalMessage {
   factory LocalMessage.fromJson(Map<String, dynamic> json) =>
 			_$LocalMessageFromJson(json);
 }
+
+**/

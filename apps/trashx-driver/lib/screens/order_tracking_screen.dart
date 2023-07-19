@@ -12,8 +12,7 @@ import 'package:trashx_driver/widgets/widgets.dart';
 // import 'package:flutter/services.dart' show rootBundle;
 
 class OrderTrackingScreen extends StatefulHookConsumerWidget {
- const OrderTrackingScreen({super.key});
-
+  const OrderTrackingScreen({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
@@ -137,37 +136,11 @@ class _OrderTrackingScreenState extends ConsumerState<OrderTrackingScreen> {
 
   @override
   Widget build(BuildContext context) {
-
-
-
     useEffect(() {
       getPolyPoints();
       getCurrentLocation();
       loadMap();
       GoogleMapService.setCustomMarkerIcon();
-
-
-
-    // Bottom sheet pop up
-
-    showModalBottomSheet(
-              enableDrag: true,
-              isDismissible: true,
-              showDragHandle: true,
-              context: context,
-              builder: (context) {
-                return SizedBox(
-                  height: 800,
-                  width: double.infinity,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      BottomSheetOrderTracking(),
-                    ],
-                  ),
-                );
-              });
 
       return () {
         // Dispose Objects here
@@ -175,47 +148,113 @@ class _OrderTrackingScreenState extends ConsumerState<OrderTrackingScreen> {
       };
     }, []);
 
+    useEffect(() {
+      // Bottom sheet pop up
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        showModalBottomSheet(
+            enableDrag: true,
+            isDismissible: true,
+            showDragHandle: true,
+            context: context,
+            builder: (context) {
+              return SizedBox(
+                height: 800,
+                width: double.infinity,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    BottomSheetOrderTracking(),
+                  ],
+                ),
+              );
+            });
+      });
+
+      return () {
+        // Dispose Objects here
+        
+      };
+    }, const []);
+    
+
     return Scaffold(
       extendBody: true,
       body: currentLocation == null
-        ? const Center(child: CircularProgressIndicator.adaptive())
-        : GoogleMap(
-            initialCameraPosition: CameraPosition(
-              target:
-                  LatLng(currentLocation!.latitude, currentLocation!.longitude),
-              zoom: 13.5,
+          ? const Center(child: CircularProgressIndicator.adaptive())
+          : Stack(
+              children: [
+                Expanded(
+                  child: GoogleMap(
+                    initialCameraPosition: CameraPosition(
+                      target: LatLng(currentLocation!.latitude,
+                          currentLocation!.longitude),
+                      zoom: 13.5,
+                    ),
+                    markers: {
+                      Marker(
+                        markerId: const MarkerId("currentLocation"),
+                        // icon: GoogleMapService.currentLocationIcon,
+                        position: LatLng(currentLocation!.latitude,
+                            currentLocation!.longitude),
+                      ),
+                      Marker(
+                        markerId: const MarkerId("source"),
+                        // icon: GoogleMapService.sourceIcon,
+                        position: sourceLocation,
+                      ),
+                      Marker(
+                        markerId: const MarkerId("destination"),
+                        // icon: GoogleMapService.destinationIcon,
+                        position: destination,
+                      ),
+                    },
+                    onMapCreated: (mapController) {
+                      _controller.complete(mapController);
+                      mapController.setMapStyle(_mapStyle);
+                    },
+                    polylines: {
+                      Polyline(
+                        polylineId: const PolylineId("route"),
+                        points: polylineCoordinates,
+                        color: const Color(0xFF7B61FF),
+                        width: 6,
+                      ),
+                    },
+                  ),
+                ),
+
+                // back button
+
+                Positioned(
+                  top: 50,
+                  left: 20,
+                  child: Container(
+                    height: 60,
+                    width: 60,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(100),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 1,
+                          blurRadius: 5,
+                          offset:
+                              const Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(Icons.arrow_back_ios),
+                    ),
+                  ),
+                ),
+              ],
             ),
-            markers: {
-              Marker(
-                markerId: const MarkerId("currentLocation"),
-                // icon: GoogleMapService.currentLocationIcon,
-                position: LatLng(
-                    currentLocation!.latitude, currentLocation!.longitude),
-              ),
-              Marker(
-                markerId: const MarkerId("source"),
-                // icon: GoogleMapService.sourceIcon,
-                position: sourceLocation,
-              ),
-              Marker(
-                markerId: const MarkerId("destination"),
-                // icon: GoogleMapService.destinationIcon,
-                position: destination,
-              ),
-            },
-            onMapCreated: (mapController) {
-              _controller.complete(mapController);
-              mapController.setMapStyle(_mapStyle);
-            },
-            polylines: {
-              Polyline(
-                polylineId: const PolylineId("route"),
-                points: polylineCoordinates,
-                color: const Color(0xFF7B61FF),
-                width: 6,
-              ),
-            },
-          ),
     );
   }
 }

@@ -11,6 +11,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      backgroundColor: Colors.teal[700],
       body: const Column(
         children: [
           Text('Profile Screen'),

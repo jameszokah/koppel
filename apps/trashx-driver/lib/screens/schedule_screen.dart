@@ -14,6 +14,8 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
     final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      backgroundColor: Colors.teal[700],
       body: Stack(
         children: [
           Positioned(
